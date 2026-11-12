@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nishant | A Birthday Story ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+    background:#100d1c;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+section {
+    min-height:100vh;
+    padding:80px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    position:relative;
+}
+
+h1,h2,h3 { font-family:'Playfair Display',serif; }
+
+h1 {
+    font-size:clamp(48px,9vw,95px);
+    color:#f8d6e9;
+    text-shadow:0 0 30px #d87eae;
+}
+
+h2 { font-size:clamp(30px,6vw,48px); color:#f3c3dc; }
+p { color:#d9c9df; line-height:2; }
+
+.eyebrow {
+    color:#eab8d5;
+    font-size:11px;
+    letter-spacing:5px;
+    margin-bottom:25px;
+}
+
+.hero {
+    background:radial-gradient(circle at 50% 10%,#69416e,transparent 50%),linear-gradient(135deg,#100d1c,#25152e);
+}
+.dark { background:linear-gradient(160deg,#1c1429,#39213e); }
+.pink { background:linear-gradient(160deg,#38223e,#181020); }
+.final { background:radial-gradient(circle,#633d60,#100d1c 75%); }
+.hidden { display:none !important; }
+
+button {
+    padding:14px 28px;
+    border:1px solid #f0b6d4;
+    border-radius:40px;
+    background:#d98bb6;
+    color:#241426;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    margin-top:25px;
+    transition:.3s;
+}
+button:hover {
+    transform:scale(1.07);
+    background:white;
+    box-shadow:0 0 25px #e8a6cb;
+}
+
+.cards {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:18px;
+    width:min(900px,95%);
+    margin:35px auto;
+}
+.card {
+    padding:27px;
+    background:#ffffff0b;
+    border:1px solid #a77a9b;
+    border-radius:20px;
+    transition:.3s;
+    line-height:1.9;
+    color:#e4d2e4;
+}
+.card:hover { transform:translateY(-7px); box-shadow:0 0 25px #c879a52c; }
+.card h3 { color:#f3bfdc; margin-bottom:14px; font-size:22px; }
+
+.container { width:min(800px,95%); margin:30px auto; }
+.note {
+    max-width:750px;
+    padding:35px;
+    border:1px solid #b17d9d;
+    border-radius:22px;
+    background:#ffffff0b;
+    margin:30px auto;
+    line-height:2.1;
+    color:#ead9e8;
+}
+
+.cake {
+    font-size:110px;
+    margin:30px;
+    animation:bounce 2s infinite;
+    filter:drop-shadow(0 0 15px #ffaddc);
+}
+@keyframes bounce { 50% {transform:translateY(-15px) rotate(3deg);} }
+
+.gallery {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    width:min(850px,95%);
+    margin:35px auto;
+}
+.photo {
+    height:220px;
+    border:1px solid #bb8cae;
+    border-radius:18px;
+    background:#ffffff0b;
+    overflow:hidden;
+}
+.photo img { width:100%; height:100%; object-fit:cover; }
+
+.boxes {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:35px;
+    max-width:800px;
+}
+.surprise {
+    width:135px;
+    height:135px;
+    background:#ffffff0b;
+    border:1px solid #d98bb6;
+    border-radius:20px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    font-size:42px;
+    transition:.3s;
+}
+.surprise:hover { transform:scale(1.08) rotate(-4deg); }
+.surprise span { font-size:12px; color:#f4c6df; margin-top:10px; }
+
+.candle {
+    font-size:65px;
+    cursor:pointer;
+    margin:20px;
+    transition:.3s;
+    filter:drop-shadow(0 0 15px #ffcf76);
+    animation:candleGlow 1.5s infinite alternate;
+}
+.candle.off { opacity:.5; filter:grayscale(1); animation:none; }
+
+@keyframes candleGlow {
+    from { filter:drop-shadow(0 0 5px #ffc76b); transform:scale(1); }
+    to { filter:drop-shadow(0 0 25px #ffdc86); transform:scale(1.08); }
+}
+
+/* NEW SPARKLES */
+.sparkle {
+    position:fixed;
+    pointer-events:none;
+    z-index:60;
+    animation:sparkleFloat 2.5s ease-out forwards;
+}
+@keyframes sparkleFloat {
+    0% { opacity:0; transform:scale(.2) rotate(0deg); }
+    25% { opacity:1; transform:scale(1.3) rotate(90deg); }
+    100% { opacity:0; transform:translateY(-100px) scale(.2) rotate(220deg); }
+}
+
+.heart {
+    position:fixed;
+    bottom:-30px;
+    pointer-events:none;
+    animation:float 7s linear forwards;
+    z-index:20;
+}
+@keyframes float {
+    to { transform:translateY(-110vh) rotate(360deg); opacity:0; }
+}
+
+.joke-box {
+    width:min(700px,92%);
+    padding:25px;
+    margin:20px auto;
+    border:1px dashed #e9a8d0;
+    border-radius:20px;
+    background:#ffffff0b;
+    color:#f8d6e9;
+    line-height:2;
+    font-size:16px;
+}
+
+footer {
+    background:#100d1c;
+    padding:30px;
+    color:#a997b0;
+    font-size:12px;
+}
+.small-text { font-size:12px; color:#cbb6ce; }
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+    <source src="birthday-song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 1. WELCOME -->
+<section class="hero" id="home">
+    <div class="eyebrow">A SPECIAL DAY • A SPECIAL PERSON</div>
+    <h1>Hey Nishant! ♡</h1>
+    <p style="margin-top:25px">
+        Somewhere between ordinary days<br>
+        and beautiful memories, today belongs to you.
+    </p>
+    <p style="margin-top:20px;color:#f1b9d6">
+        A little surprise has been waiting for you...
+    </p>
+    <button onclick="start()">UNLOCK YOUR SURPRISE ✨🎁</button>
+    <p class="small-text" style="margin-top:65px;letter-spacing:4px">
+        MADE WITH LOTS OF WISHES ♡
+    </p>
+</section>
+
+<!-- 2. BIRTHDAY INTRO -->
+<section class="dark hidden" id="birthday">
+    <div class="eyebrow">THE DAY WE CELEBRATE YOU 🎉</div>
+    <div class="cake">🎂</div>
+    <h1>Happy Birthday!</h1>
+    <h2 style="margin-top:20px">Nishant ✨</h2>
+    <p style="margin-top:25px">
+        A new year of life, new memories,<br>
+        new opportunities and endless happiness.
+    </p>
+    <div class="joke-box">
+        😂 Breaking News: Nishant has successfully survived another 365 days of everyone's nonsense! Congratulations! 💀
+    </div>
+    <button onclick="next('birthday','journey')">LET'S CELEBRATE ♡</button>
+</section>
+
+<!-- 3. JOURNEY -->
+<section class="pink hidden" id="journey">
+    <div class="eyebrow">A BRAND NEW CHAPTER</div>
+    <h2>Your Journey Ahead</h2>
+    <p style="margin-top:20px">
+        This year is another opportunity to discover<br>
+        new things, achieve bigger dreams and create memories.
+    </p>
+    <div class="cards">
+        <div class="card"><h3>🌱 Grow</h3>Become a better version of yourself, one day at a time.</div>
+        <div class="card"><h3>🚀 Achieve</h3>Turn your hard work into achievements you can be proud of.</div>
+        <div class="card"><h3>🌍 Explore</h3>Discover places, experiences and opportunities.</div>
+        <div class="card"><h3>🦋 Enjoy</h3>Never forget to enjoy the little moments of life.</div>
+    </div>
+    <div class="joke-box">😂 Reminder: Growing up is compulsory. Acting mature is totally optional! 😎</div>
+    <button onclick="next('journey','reasons')">SOMETHING SPECIAL ABOUT YOU 💗</button>
+</section>
+
+<!-- 4. REASONS -->
+<section class="dark hidden" id="reasons">
+    <div class="eyebrow">A LITTLE APPRECIATION</div>
+    <h2>10 Reasons You're Amazing</h2>
+    <div class="container">
+        <div class="card">01. Your unique personality ✨</div>
+        <div class="card">02. Your ability to keep moving forward 🌱</div>
+        <div class="card">03. Your dreams and ambitions 🚀</div>
+        <div class="card">04. Your potential to do amazing things 🌟</div>
+        <div class="card">05. Your little moments of craziness 😂</div>
+        <div class="card">06. Your own way of seeing life 🌍</div>
+        <div class="card">07. Your strength to learn from experiences 💪</div>
+        <div class="card">08. The memories you create 📸</div>
+        <div class="card">09. Your individuality 🦋</div>
+        <div class="card">10. Simply because there is only one Nishant! ❤️</div>
+    </div>
+    <div class="joke-box">💀 Reason number 11: You are so special that even Google can't find another one like you! 😂</div>
+    <button onclick="next('reasons','wishes')">READ YOUR WISHES 🌸</button>
+</section>
+
+<!-- 5. WISHES -->
+<section class="pink hidden" id="wishes">
+    <div class="eyebrow">WISHES FROM THE HEART</div>
+    <h2>For Your New Year</h2>
+    <div class="container">
+        <div class="card">🌸 May your mornings begin with hope and your nights end with peace.</div>
+        <div class="card">✨ May you get opportunities that take your life to beautiful places.</div>
+        <div class="card">💫 May you find happiness even in the smallest things.</div>
+        <div class="card">❤️ May you always be surrounded by people who genuinely appreciate you.</div>
+        <div class="card">🌙 May every challenge teach you something valuable.</div>
+        <div class="card">🎯 May your biggest dreams become your favourite achievements.</div>
+        <div class="card">🦋 May you never lose your curiosity, confidence or kindness.</div>
+        <div class="card">🎉 May this year give you a thousand reasons to celebrate!</div>
+    </div>
+    <div class="joke-box">🎂 Birthday rule: Calories from birthday cake do not count. This is scientifically approved by absolutely nobody. 🤣</div>
+    <button onclick="next('wishes','gallery')">A LOOK AT THE MEMORIES 📸</button>
+</section>
+
+<!-- 6. GALLERY -->
+<section class="dark hidden" id="gallery">
+    <div class="eyebrow">LITTLE MOMENTS • BIG MEMORIES</div>
+    <h2>The Memory Gallery</h2>
+    <p style="margin-top:20px">Every beautiful story deserves its own collection.</p>
+    <div class="gallery">
+        <div class="photo"><img src="photo1.jpg" alt="Memory 1"></div>
+        <div class="photo"><img src="photo2.jpg" alt="Memory 2"></div>
+        <div class="photo"><img src="photo3.jpg" alt="Memory 3"></div>
+        <div class="photo"><img src="photo4.jpg" alt="Memory 4"></div>
+    </div>
+    <p class="small-text">Add your photos to the project folder using these filenames.</p>
+    <button onclick="next('gallery','letter1')">THERE'S A LETTER FOR YOU 💌</button>
+</section>
+
+<!-- 7. LETTER ONE -->
+<section class="pink hidden" id="letter1">
+    <div class="eyebrow">A FEW WORDS FOR YOU</div>
+    <h2>Dear Nishant ♡</h2>
+    <div class="note">
+        I don't know how to put every birthday wish into words, but I genuinely hope that this day brings you a lot of happiness.
+        <br><br>
+        Another year has passed, and another beautiful chapter is waiting for you.
+        <br><br>
+        Life won't always go according to your plans, but that doesn't mean you should stop dreaming.
+        <br><br>
+        Keep believing in yourself. Keep working towards what you want. Never allow temporary difficulties to decide your future.
+        <br><br>
+        There are so many beautiful things waiting for you. Give yourself time to experience them.
+        <br><br>
+        May you always have the courage to start again, the confidence to move forward and the wisdom to appreciate what you already have.
+        <br><br>
+        Happy Birthday, Nishant! ❤️
+    </div>
+    <button onclick="next('letter1','letter2')">ANOTHER LITTLE MESSAGE 💗</button>
+</section>
+
+<!-- 8. LETTER TWO -->
+<section class="dark hidden" id="letter2">
+    <div class="eyebrow">A REMINDER FOR LIFE</div>
+    <h2>Something to Remember</h2>
+    <div class="note">
+        Dear Nishant,
+        <br><br>
+        Never compare your journey with someone else's. Everyone has a different timeline, different struggles and different dreams.
+        <br><br>
+        Celebrate your small achievements. Appreciate your progress. Learn from your mistakes.
+        <br><br>
+        You don't have to have everything figured out today. Just keep taking meaningful steps.
+        <br><br>
+        I hope the coming year gives you more confidence, more experiences, more laughter and more reasons to be proud of yourself.
+        <br><br>
+        Your story is still being written. Make it beautiful.
+        <br><br>
+        Stay blessed. Stay happy. Keep shining. ✨
+    </div>
+    <button onclick="next('letter2','never-said')">THINGS I NEVER TOLD YOU ♡</button>
+</section>
+
+<!-- 9. NEVER SAID -->
+<section class="pink hidden" id="never-said">
+    <div class="eyebrow">SOME WORDS DESERVE TO BE SAID</div>
+    <h2>Things I Never Told You ♡</h2>
+    <div class="note">
+        Sometimes we forget to appreciate people while they are busy making memories.
+        <br><br>
+        So today, I want to say this:
+        <br><br>
+        You deserve appreciation for the person you are, for the effort you make and for all the little things that make you different.
+        <br><br>
+        Never think that you have to be perfect to be appreciated.
+        <br><br>
+        Your journey, your personality and your dreams are worth celebrating.
+        <br><br>
+        And I hope you never forget that.
+    </div>
+    <div class="joke-box">🤣 And please remember: Being an adult is mostly just googling things and pretending you know what you're doing. 💀</div>
+    <button onclick="next('never-said','open-when')">OPEN ANOTHER LITTLE SURPRISE 💌</button>
+</section>
+
+<!-- 10. OPEN WHEN -->
+<section class="dark hidden" id="open-when">
+    <div class="eyebrow">A LITTLE BOX OF WORDS</div>
+    <h2>Open When... 💌</h2>
+    <p style="margin-top:15px">Choose a moment and open your letter.</p>
+    <div class="boxes">
+        <div class="surprise" onclick="openLetter(0)">😊<span>When You're Happy</span></div>
+        <div class="surprise" onclick="openLetter(1)">🌧️<span>When Life Feels Difficult</span></div>
+        <div class="surprise" onclick="openLetter(2)">😂<span>When You Need A Laugh</span></div>
+        <div class="surprise" onclick="openLetter(3)">🚀<span>When You Need Motivation</span></div>
+    </div>
+    <div class="note" id="openLetterText">Choose a letter to discover your message. ♡</div>
+    <button onclick="next('open-when','universe')">EXPLORE YOUR UNIVERSE 🌌</button>
+</section>
+
+<!-- 11. UNIVERSE -->
+<section class="pink hidden" id="universe">
+    <div class="eyebrow">12 MONTHS • 12 WISHES</div>
+    <h2>Nishant's Universe ✨</h2>
+    <p style="margin-top:15px">A little wish for every month of your new year.</p>
+    <div class="cards">
+        <div class="card">JANUARY — New beginnings 🌅</div>
+        <div class="card">FEBRUARY — More happiness ❤️</div>
+        <div class="card">MARCH — New opportunities 🌱</div>
+        <div class="card">APRIL — More confidence ✨</div>
+        <div class="card">MAY — Beautiful memories 📸</div>
+        <div class="card">JUNE — Unexpected success 🏆</div>
+        <div class="card">JULY — More adventures 🌍</div>
+        <div class="card">AUGUST — Inner peace 🕊️</div>
+        <div class="card">SEPTEMBER — Bigger dreams 🚀</div>
+        <div class="card">OCTOBER — Genuine friendships 🤝</div>
+        <div class="card">NOVEMBER — Reasons to smile 🌸</div>
+        <div class="card">DECEMBER — A year to remember 🎉</div>
+    </div>
+    <button onclick="next('universe','future-letter')">A LETTER FROM THE FUTURE ✉️</button>
+</section>
+
+<!-- 12. FUTURE LETTER -->
+<section class="dark hidden" id="future-letter">
+    <div class="eyebrow">A LETTER FROM THE FUTURE</div>
+    <h2>Dear Future Nishant...</h2>
+    <div class="note">
+        Hey Nishant,
+        <br><br>
+        I hope you're reading this with a smile.
+        <br><br>
+        I hope you've achieved some of the dreams you once thought were far away.
+        <br><br>
+        I hope you've met wonderful people, visited beautiful places and experienced things you never expected.
+        <br><br>
+        I hope you are proud of the person you have become.
+        <br><br>
+        And if things didn't go exactly as planned, remember that life is not a race.
+        <br><br>
+        Keep going. Keep believing. Your story is still unfolding.
+        <br><br>
+        With best wishes, Your future self. ♡
+    </div>
+    <button onclick="next('future-letter','gifts')">UNLOCK FIVE LITTLE GIFTS 🎁</button>
+</section>
+
+<!-- 13. GIFTS -->
+<section class="pink hidden" id="gifts">
+    <div class="eyebrow">CHOOSE YOUR LITTLE SURPRISE</div>
+    <h2>Five Gifts For You</h2>
+    <p style="margin-top:15px">Click every gift and discover its message.</p>
+    <div class="boxes">
+        <div class="surprise" onclick="gift(0)">🎁<span>Gift One</span></div>
+        <div class="surprise" onclick="gift(1)">🎀<span>Gift Two</span></div>
+        <div class="surprise" onclick="gift(2)">💝<span>Gift Three</span></div>
+        <div class="surprise" onclick="gift(3)">🌟<span>Gift Four</span></div>
+        <div class="surprise" onclick="gift(4)">🎈<span>Gift Five</span></div>
+    </div>
+    <div class="note" id="giftMessage">Your surprises are waiting here... ♡</div>
+    <p class="small-text" id="giftProgress">0 / 5 gifts opened</p>
+    <button onclick="next('gifts','cakepage')">TIME TO MAKE A WISH 🎂</button>
+</section>
+
+<!-- 14. CANDLE CELEBRATION -->
+<section class="dark hidden" id="cakepage">
+    <div class="eyebrow">MAKE A WISH, NISHANT ✨</div>
+    <h2>Your Birthday Cake!</h2>
+
+    <div class="cake">🎂</div>
+
+    <div class="joke-box">
+        🚨 Important birthday announcement:<br>
+        Please don't eat the screen. The cake is virtual. 😂
+    </div>
+
+    <p>Tap the candle below to make your birthday wish!</p>
+
+    <div class="sparkle-area">
+        <div class="candle" id="candle" onclick="blow()">🕯️</div>
+    </div>
+
+    <p id="candleMessage" style="margin-top:20px">
+        One candle, one special wish. ✨
+    </p>
+
+    <p class="small-text" style="margin-top:15px">
+        P.S. Don't worry, no birthday cake was harmed in this website. 🤣
+    </p>
+
+    <button onclick="next('cakepage','future')">MY WISH IS MADE ♡</button>
+</section>
+
+<!-- 15. FUTURE -->
+<section class="pink hidden" id="future">
+    <div class="eyebrow">FOR ALL THE DAYS AHEAD</div>
+    <h2>Dear Nishant...</h2>
+    <div class="cards">
+        <div class="card">🌅 More beautiful beginnings</div>
+        <div class="card">🏆 More achievements to celebrate</div>
+        <div class="card">🌍 More places to explore</div>
+        <div class="card">🤍 More genuine connections</div>
+        <div class="card">🌸 More peaceful days</div>
+        <div class="card">✨ More dreams coming true</div>
+    </div>
+    <div class="note">
+        I hope that when you look back at this year, you feel proud of how far you have come.
+        <br><br>
+        Never be afraid to start something new. Never stop learning. Never stop believing in your potential.
+        <br><br>
+        The best chapters of your story are still waiting to be written.
+    </div>
+    <div class="joke-box">😂 One last reminder: You're not old. You're just a classic model with a few software updates pending! 💀</div>
+    <button onclick="next('future','final')">THE FINAL SURPRISE ❤️</button>
+</section>
+
+<!-- 16. FINALE -->
+<section class="final hidden" id="final">
+    <div class="eyebrow">THIS DAY IS YOURS 🎉</div>
+    <h1>Keep Shining,<br>Nishant! ✨</h1>
+    <div style="font-size:70px;margin:35px">🎈 🎂 🎉</div>
+    <p>
+        May your life be filled with laughter,<br>
+        your heart with happiness,<br>
+        and your journey with success.
+    </p>
+    <div class="joke-box">
+        😂 Final birthday report:<br>
+        Age increased ✔️<br>
+        Wisdom loading... ⏳<br>
+        Maturity not found ❌<br>
+        Coolness level: UNLIMITED 😎
+    </div>
+    <h2 style="font-size:30px;margin-top:40px">HAPPY BIRTHDAY ONCE AGAIN! ❤️</h2>
+    <p style="margin-top:30px">Never stop being the amazing person you are.</p>
+    <button onclick="celebrate()">ONE MORE CELEBRATION 🎊</button>
+    <button onclick="location.reload()">REPLAY THE MAGIC ♡</button>
+</section>
+
+<footer>
+    A little website, a lot of wishes.<br>
+    Created especially for Nishant ♡
+</footer>
+
+<script>
+
+const letters = [
+"😊 WHEN YOU'RE HAPPY: Never let that smile disappear. Celebrate every little victory and enjoy every beautiful moment. You deserve happiness!",
+"🌧️ WHEN LIFE FEELS DIFFICULT: Take your time. Not every day needs to be perfect. Keep believing in yourself and remember that one difficult chapter doesn't define your whole story.",
+"😂 WHEN YOU NEED A LAUGH: Congratulations! You've officially unlocked another year of tolerating everyone's nonsense. Don't become too mature now. Happy Birthday, legend! 💀",
+"🚀 WHEN YOU NEED MOTIVATION: Remember how many things you once thought were impossible but eventually learned to do. Trust your potential. Your next achievement might be closer than you think."
+];
+
+const messages = [
+"🎁 GIFT ONE: May you achieve everything you have ever dreamed of. Never stop believing in yourself!",
+"🎀 GIFT TWO: You deserve happiness that stays, people who care and moments worth remembering.",
+"💝 GIFT THREE: A reminder that your journey is unique. Never compare your chapter with someone else's.",
+"🌟 GIFT FOUR: May success surprise you, opportunities find you and your hard work pay off.",
+"🎈 GIFT FIVE: Your biggest gift is another year to learn, grow, laugh and create beautiful memories. Happy Birthday!"
+];
+
+let opened = new Set();
+let candleBlown = false;
+
+function start() {
+    document.getElementById("home").classList.add("hidden");
+    document.getElementById("birthday").classList.remove("hidden");
+
+    const music = document.getElementById("music");
+    music.play().catch(() => console.log("Check your MP3 filename."));
+
+    window.scrollTo(0,0);
+    hearts();
+    sparkles();
+}
+
+function next(current,destination) {
+    document.getElementById(current).classList.add("hidden");
+    document.getElementById(destination).classList.remove("hidden");
+    window.scrollTo(0,0);
+    hearts();
+    sparkles();
+}
+
+function openLetter(number) {
+    document.getElementById("openLetterText").innerText = letters[number];
+    hearts();
+}
+
+function gift(number) {
+    document.getElementById("giftMessage").innerText = messages[number];
+    opened.add(number);
+    document.getElementById("giftProgress").innerText = opened.size + " / 5 gifts opened";
+    hearts();
+    sparkles();
+}
+
+/* CANDLE BLOWING + SPARKLES */
+function blow() {
+    const candle = document.getElementById("candle");
+    const message = document.getElementById("candleMessage");
+
+    if(!candleBlown) {
+        candleBlown = true;
+        candle.innerText = "💨";
+        candle.classList.add("off");
+
+        message.innerText = "🎉 WISH SENT! May all your beautiful dreams come true! ✨";
+
+        confetti();
+        sparkles(65);
+
+        setTimeout(() => {
+            message.innerText += " 😂 Now where's our cake?!";
+        },1800);
+
+    } else {
+        candleBlown = false;
+        candle.innerText = "🕯️";
+        candle.classList.remove("off");
+        message.innerText = "The candle is glowing again! Make another wish. ♡";
+        sparkles(20);
+    }
+}
+
+/* FLOATING HEARTS */
+function hearts() {
+    const symbols = ["♡","♥","✨","💗","🌸","⭐","😂","🎈"];
+
+    for(let i=0;i<25;i++) {
+        let item = document.createElement("div");
+        item.className = "heart";
+        item.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+        item.style.left = Math.random()*100+"vw";
+        item.style.animationDuration = (4+Math.random()*5)+"s";
+        item.style.fontSize = (15+Math.random()*25)+"px";
+        document.body.appendChild(item);
+        setTimeout(() => item.remove(),9000);
+    }
+}
+
+/* NEW SPARKLE EFFECT */
+function sparkles(amount=25) {
+    const symbols = ["✨","⭐","🌟","💫","✦","✧"];
+
+    for(let i=0;i<amount;i++) {
+        let item = document.createElement("div");
+        item.className = "sparkle";
+        item.innerText = symbols[Math.floor(Math.random()*symbols.length)];
+
+        item.style.left = Math.random()*100+"vw";
+        item.style.top = (15+Math.random()*75)+"vh";
+        item.style.fontSize = (12+Math.random()*24)+"px";
+        item.style.animationDelay = Math.random()*.8+"s";
+
+        document.body.appendChild(item);
+        setTimeout(() => item.remove(),3500);
+    }
+}
+
+/* CONFETTI */
+function confetti() {
+    for(let i=0;i<90;i++) {
+        let item = document.createElement("div");
+
+        item.innerText = ["🎉","✨","💗","🎊","⭐","😂"][Math.floor(Math.random()*6)];
+        item.style.position = "fixed";
+        item.style.left = Math.random()*100+"vw";
+        item.style.top = "-30px";
+        item.style.fontSize = "22px";
+        item.style.zIndex = "50";
+        item.style.pointerEvents = "none";
+        item.style.transition = "transform 3s ease-in, opacity 3s";
+
+        document.body.appendChild(item);
+
+        setTimeout(() => {
+            item.style.transform = "translateY(110vh) rotate(600deg)";
+            item.style.opacity = "0";
+        },50);
+
+        setTimeout(() => item.remove(),3200);
+    }
+}
+
+/* GRAND CELEBRATION */
+function celebrate() {
+    confetti();
+    hearts();
+    sparkles(70);
+}
+
+</script>
+</body>
+</html>
